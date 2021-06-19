@@ -17,9 +17,9 @@
              <!-- Customer Portal -->
             <div id='customer-facing'></div>
             <h4>CUSTOMER</h4>
-                <div id='pricing'>
-                    <h3>Cookie Package Pricing: </h3>
-                    <ul id='package-options'></ul>
+                <div id='customer-pricing'>
+                    <h3>Cookie Package Pricing (per dozen): </h3>
+                    <ul id='customer-package-options'></ul>
                 </div>
 
                 <div id="order-form"></div>
@@ -53,6 +53,9 @@
 
                     <label for='event-date'>Event Date:</label>
                     <input type="date" id='event-date' name='event-date'> </br>
+
+                    <label for='dozens'>Dozens Needed:</label>
+                    <input type="number" id='dozens' name='dozens'> </br>
                     
                     <div id='cookie-package'>
                         <p>Select your cookie package:</p>
@@ -75,8 +78,16 @@
              <!-- Admin Portal -->
             <div id='admin-facing'></div>
             <h4>ADMIN</h4>
-            
+                <div id='admin-pricing'>
+                    <h3>Set Cookie Package Pricing (per dozen)</h3>
+                    <ul id='admin-package-options'>
+                        <li id="basic-cookies">Basic:</li></br>
+                        <li id='detailed-cookies'>Detailed:</li></br>
+                        <li id='elaborate-cookies'>Elaborate:</li></br>
+                    </ul>
+                    <button type='submit' id="update-prices">Update Prices</button>
+                </div>
         </main>
-        <script src="" async defer></script>
+        <script src='pricing.js'></script>
     </body>
 </html>
