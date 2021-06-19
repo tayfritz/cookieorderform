@@ -9,7 +9,37 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
-        <h1>Taylor Made in Kentucky</h1>
+        <header>
+            <h1>Taylor Made in Kentucky</h1>
+            <p>Fill out your custom cookie order form below!</p>
+        </header>
+        
+        <main>
+            <div id="order-form"></div>
+                <!-- Customer Information -->
+                <label for='name'>Name:</label>
+                <input type="text" id='name' name='name' required> </br>
+
+                <label for='email'>Email:</label>
+                <input type="email" id='email' name='email' required></br>
+
+                <label for='phone-number'>Number:</label>
+                <input type="number" id='phone-number' name='phone-number' required></br>
+
+                <div id='comm-pref'>
+                    <p>Communication Preference:</p>
+                    
+                    <label for='text-me'>Text me!</label>
+                    <input type="radio" id='text-me' name='text'></br>
+                        
+                    <label for='email-me'>Email me!</label>
+                    <input type="radio" id='email-me' name='email-me'></br>
+                        
+                    <label for='no-comm-pref'>No preference!</label>
+                    <input type="radio" id='no-comm-pref' name='no-comm-pref'></br>
+                </div>
+        </div>
+        </main>
         <script src="" async defer></script>
     </body>
 </html>
