@@ -15,6 +15,11 @@
         </header>
         
         <main>
+            <div id='pricing'>
+                <h3>Cookie Package Pricing: </h3>
+                <ul id='package-options'></ul>
+            </div>
+
             <div id="order-form"></div>
                 <!-- Customer Information -->
                 <label for='name'>Name:</label>
@@ -38,6 +43,31 @@
                     <label for='no-comm-pref'>No preference!</label>
                     <input type="radio" id='no-comm-pref' name='no-comm-pref'></br>
                 </div>
+
+                <!-- Order Information -->
+                <label for='event-name'>Event Name:</label>
+                <input type="text" id='event-name' name='event-name'> </br>
+
+                <label for='event-date'>Event Date:</label>
+                <input type="date" id='event-date' name='event-date'> </br>
+                
+                <div id='cookie-package'>
+                    <p>Select your cookie package:</p>
+                    
+                    <label for='basic'>Basic</label>
+                    <input type="radio" id='basic' name='basic'></br>
+
+                    <label for='detailed'>Detailed</label>
+                    <input type="radio" id='detailed' name='detalied'></br>
+
+                    <label for='elaborate'>Elaborate</label>
+                    <input type="radio" id='elaborate' name='elaborate'></br>
+                </div>
+
+                <!-- TODO: Add image drop in for inspo pics -->
+                <!-- TODO: Add color selector upon choice made above -->
+
+
         </div>
         </main>
         <script src="" async defer></script>
