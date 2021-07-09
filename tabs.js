@@ -6,7 +6,7 @@ const tabLinks = document.querySelectorAll('.tablink');
 
 function toggleTabs(event, divToDisplay, divToHide) {
     divToHide.style.display = 'none';
-    divToDisplay.className = divToDisplay.className.replace('tab-content', 'active');
+    divToDisplay.className = divToDisplay.className.replace('tab-content', 'active');``
 }
 
 
