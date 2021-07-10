@@ -11,11 +11,14 @@
     <body>
         <header>
             <h1>Taylor Made in Kentucky</h1>
+            <h3>CUSTOM COOKIES</h3>
+             <!-- TABS -->
+             <button class='tablink' onclick='toggleTabs(event, adminDiv, customerDiv)'> ADMIN </button>
+             <button class='tablink' onclick='toggleTabs(event, customerDiv, adminDiv)'> CUSTOMER </button>
         </header>
         
         <main>
              <!-- Admin Portal -->
-             <button class='tablink' onclick='toggleTabs(event, adminDiv, customerDiv)'> ADMIN </button>
              <div id='admin-facing' class='tab-content'>
                     <div id='admin-pricing'>
                         <h3>Set Cookie Package Pricing (per dozen)</h3>
@@ -36,14 +39,24 @@
                                 <th id='dozens'>Dozens Needed</th>
                                 <th id='package-selected'>Package</th>
                             </tr>
+                           <!-- TODO: Create rows dynamically with JS -->
                             <tr>
-                                <!-- <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td></td> -->
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                             </tr>
 
                         </table>
@@ -51,7 +64,6 @@
             </div>
             
             <!-- Customer Portal -->
-            <button class='tablink' onclick='toggleTabs(event, customerDiv, adminDiv)'> CUSTOMER </button>
             <div id='customer-facing' class='tab-content'>
                 <div id='customer-pricing'>
                     <h3>Cookie Package Pricing (per dozen): </h3>
@@ -111,10 +123,11 @@
                         <!-- TODO: Add image drop in for inspo pics -->
                         <!-- TODO: Add color selector upon choice made above -->
                     </div>
-            </div>
-            <!-- Order Confirmation -->  
-            <div id='order-confirmation'></div>
-
+                <!-- Order Confirmation -->  
+                <div id='order-confirmation'>
+                    <h3>Success! Here's what we got from you!</h3>
+                    <!-- TODO: Add elements dynamically in JS -->
+                </div>
             </div>
         </main>
         <script src='pricing.js'></script>
