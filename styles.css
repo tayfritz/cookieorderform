@@ -1,7 +1,26 @@
-/* .tab-content {
-    display: none;
-} */
+/*          BASIC STYLES            */
 
 .active {
     display: block;
+}
+ /*         HTML TABLE STYLES      */
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+td, th {
+    text-align: center;
+    padding: 8px;
+    color: cornsilk;
+  }  
+
+tr:nth-child(odd) {
+    background-color: rgb(39, 63, 52);
+    font: 20px;
 }
