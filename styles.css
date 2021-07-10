@@ -18,6 +18,14 @@ h1, h3 {
     padding: 20px;
 }
 
+.tab-content {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
 button {
     font-size: 20px;
     padding: 5px;
