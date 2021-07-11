@@ -31,6 +31,8 @@ imgInput.addEventListener('change', function () {
     inspo.push(file);
 });
 
+
+
 // function addUploader() {
 //     const newInput = document.createElement('input');
 //     newInput.type = 'file';
