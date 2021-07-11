@@ -40,6 +40,27 @@ ul {
     list-style: none;
 }
 
+#imagePreview {
+    border: 1px dotted rgb(39, 63, 52);
+    width: 50%;
+    min-height: 100px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: rgb(33, 18, 56);
+}
+
+#image-preview__image {
+    display: none;
+    width: 100%;
+}
+
+#img-preview-2, #img-preview-3 {
+    display: block;
+}
 /* HTML TABLE STYLES */
 
 table {
