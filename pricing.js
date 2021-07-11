@@ -8,7 +8,6 @@ const elaborate = document.getElementById('elaborate-cookies');
 const customerPackagePricing = document.getElementById('customer-package-options');
 
 
-
 const basicInput = document.createElement('input');
 basicInput.type = 'number'
 

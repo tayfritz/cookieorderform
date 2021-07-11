@@ -23,9 +23,12 @@
                     <div id='admin-pricing'>
                         <h3>Set Cookie Package Pricing (per dozen)</h3>
                         <ul id='admin-package-options'>
-                            <li id="basic-cookies">Basic:</li></br>
-                            <li id='detailed-cookies'>Detailed:</li></br>
-                            <li id='elaborate-cookies'>Elaborate:</li></br>
+                            <li id="basic-cookies">BASIC:</li>
+                            <input type="number" class='price-input-basic'></br>
+                            <li id='detailed-cookies'>DETAILED:</li>
+                            <input type="number" class='price-input-detailed'></br>
+                            <li id='elaborate-cookies'>ELABORATE:</li>
+                            <input type="number" class='price-input-elaborate'></br>
                         </ul>
                         <button type='submit' id="update-prices">Update Prices</button>
                         
@@ -139,7 +142,7 @@
                 </div>
             </div>
         </main>
-        <script src='pricing.js'></script>
+        <script src='pricing-refactor.js'></script>
         <script src='order-confirmation.js'></script>
         <script src='tabs.js'></script>
         <script src='img-preview.js'></script>

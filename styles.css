@@ -36,6 +36,15 @@ button {
     margin-bottom: 10px;
 }
 
+.admin-reminder {
+    background-color: rgb(218, 131, 100);
+    border-radius: 4px;
+    font-style: italic;
+    width: 60%;
+    margin: auto;
+    padding: 20px;
+}
+
 ul {
     list-style: none;
 }
