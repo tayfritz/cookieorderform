@@ -82,7 +82,7 @@ updatePriceButton.addEventListener('click', () => {
     for (let i=0; i<priceInputsAll.length; i++) {
         let inputValue = priceInputsAll[i].value;
         if (validatePrices(inputValue)) {
-            cookiePackages[i].pricePerDozen = inputValue;
+            cookiePackages[i].pricePerDozen = parseFloat(inputValue);
             alertAdminDiv.innerHTML = `<p>SUCCESS! Your prices have been updated! Here's what we got from you!</p>`
             cookiePackages.forEach( (package) => {
                 let result = `<br>${package.packageName} | $${package.pricePerDozen}`
