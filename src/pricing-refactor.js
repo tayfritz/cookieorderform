@@ -1,6 +1,6 @@
 // Cookie package options - ADMIN 
 const adminPackageOptions = document.getElementById("admin-package-options");
-
+const alertAdminDiv = document.getElementById('admin-alert-box');
 const cookiePackages = [
     {
         packageName: 'BASIC',
@@ -30,7 +30,7 @@ const cookiePackages = [
         pricePerDozen: 0
     }
 ];
-const alertAdminDiv = document.createElement('div');
+
 //Price is set dynamically by ADMIN in ADMIN portal and pushed to CUSTOMER portal
 function alertAdmin() {
     let count = 0
@@ -60,7 +60,7 @@ priceInputsAll.push(inputElaborate);
 
 updatePriceButton.addEventListener('click', () => {
     for (let i=0; i<priceInputsAll.length; i++) {
-        let inputValue = priceInputsAll[i].valueAsNumber;
+        let inputValue = priceInputsAll[i].value;
         cookiePackages[i].pricePerDozen = inputValue;
         alertAdminDiv.textContent = `SUCCESS! Your prices have been updated! Here's what we got from you!`
         cookiePackages.forEach( (package) => {
@@ -73,6 +73,7 @@ updatePriceButton.addEventListener('click', () => {
 
 
 
+const priceRegex = /^(?:\d+|\d{1,3}(?:,\d{3})+)?(?:\.\d{2})?$/;
 
 
 
@@ -104,46 +105,3 @@ updatePriceButton.addEventListener('click', () => {
 
 
 
-
-// const packagePrices = [];
-// const updatePrices = document.getElementById('update-prices');
-// const basic = document.getElementById('basic-cookies');
-// const detailed = document.getElementById('detailed-cookies');
-// const elaborate = document.getElementById('elaborate-cookies');
-
-// const basicInput = document.createElement('input');
-// basicInput.type = 'number'
-
-// const detailedInput = document.createElement('input');
-// detailedInput.type = 'number'
-
-// const elaborateInput = document.createElement('input');
-// elaborateInput.type = 'number'
-
-// basic.appendChild(basicInput);
-// detailed.appendChild(detailedInput);
-// elaborate.appendChild(elaborateInput);
-
-// const customerPackagePricing = document.getElementById('customer-package-options');
-
-// updatePrices.addEventListener('click', () => {
-//     packagePrices.push(basicInput.valueAsNumber);
-//     const basicLi = document.createElement("li");
-//     basicLi.textContent = `Basic Package Price: $${basicInput.value}`
-//     customerPackagePricing.appendChild(basicLi);
-//     basicInput.value = "";
-
-//     packagePrices.push(detailedInput.valueAsNumber);
-//     const detailedLi = document.createElement("li");
-//     detailedLi.textContent = `Detailed Package Price: $${detailedInput.value}`
-//     customerPackagePricing.appendChild(detailedLi);
-//     detailedInput.value = "";
-
-//     packagePrices.push(elaborateInput.valueAsNumber);
-//     const elaborateLi = document.createElement("li");
-//     elaborateLi.textContent = `Elaborate Package Price: $${elaborateInput.value}`
-//     customerPackagePricing.appendChild(elaborateLi);
-//     elaborateInput.value = "";
-// });
-
-// Cookie package options - CUSTOMER PAGE

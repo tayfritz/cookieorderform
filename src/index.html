@@ -11,7 +11,7 @@
     <body>
         <header>
             <h1>Taylor Made in Kentucky</h1>
-            <h3>CUSTOM COOKIES</h3>
+            <h3>CUSTOM SUGAR COOKIES</h3>
              <!-- TABS -->
              <button class='tablink admin-btn' onclick='toggleTabs(event, "active")'> ADMIN </button>
              <button class='tablink customer-btn' onclick='toggleTabs(event, "active")'> CUSTOMER </button>
@@ -24,14 +24,16 @@
                         <h3>Set Cookie Package Pricing (per dozen)</h3>
                         <ul id='admin-package-options'>
                             <li id="basic-cookies">BASIC:</li>
-                            <input type="number" class='price-input-basic'></br>
+                            <input type="number" class='price-input-basic'>
                             <li id='detailed-cookies'>DETAILED:</li>
-                            <input type="number" class='price-input-detailed'></br>
+                            <input type="number" class='price-input-detailed'>
                             <li id='elaborate-cookies'>ELABORATE:</li>
-                            <input type="number" class='price-input-elaborate'></br>
+                            <input type="number" class='price-input-elaborate'>
                         </ul>
                         <button type='submit' id="update-prices">Update Prices</button>
-                        
+                        <!-- admin alert box -->
+                        <div id='admin-alert-box'></div>
+
                         <table id='pending-orders'>
                             <tr>
                                 <th id='name'>Name</th>
