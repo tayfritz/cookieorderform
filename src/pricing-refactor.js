@@ -43,7 +43,6 @@ function alertAdmin() {
         alertAdminDiv.innerHTML = `<p>FRIENDLY REMINDER!</p>
                                     <p>You must set your prices for all packages before you continue!</p>`
         alertAdminDiv.className = "admin-reminder"
-        adminPackageOptions.appendChild(alertAdminDiv);
     } 
 }
 alertAdmin();
@@ -68,7 +67,7 @@ function validatePrices(priceInput) {
         count += 1;
     }
     if (count > 0) {
-        alertAdminDiv.innerHTML = `<p>We may have had a problem with your prices. Here's what we got from you. If you'd like to try again, resubmit your prices. If not, any package marked as $0 will prompt the customer to reach out to you!</p>`
+        alertAdminDiv.innerHTML = `<p>We had a problem with your prices. Here's what we got from you. If you'd like to try again, resubmit your prices. If not, any package marked as $0 will prompt the customer to reach out to you!</p>`
         cookiePackages.forEach( (package) => {
             let result = `<br>${package.packageName} | $${package.pricePerDozen}`
             alertAdminDiv.insertAdjacentHTML('beforeend', result);
