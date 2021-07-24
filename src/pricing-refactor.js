@@ -40,7 +40,8 @@ function alertAdmin() {
         }
     }   
     if(count > 0) {
-        alertAdminDiv.textContent = `REMINDER! You must set your prices for all packages before you continue!`
+        alertAdminDiv.innerHTML = `<p>FRIENDLY REMINDER!</p>
+                                    <p>You must set your prices for all packages before you continue!</p>`
         alertAdminDiv.className = "admin-reminder"
         adminPackageOptions.appendChild(alertAdminDiv);
     } 
@@ -57,47 +58,41 @@ priceInputsAll.push(inputBasic);
 priceInputsAll.push(inputDetailed);
 priceInputsAll.push(inputElaborate);
 
+const priceRegex = /^(\d+\.)(\d{2})$/
+
+function validatePrices(priceInput) {
+    let count = 0;
+    if (priceRegex.test(priceInput)) {
+        count = 0;
+    } else {
+        count += 1;
+    }
+    if (count > 0) {
+        alertAdminDiv.innerHTML = `<p>We may have had a problem with your prices. Here's what we got from you. If you'd like to try again, resubmit your prices. If not, any package marked as $0 will prompt the customer to reach out to you!</p>`
+        cookiePackages.forEach( (package) => {
+            let result = `<br>${package.packageName} | $${package.pricePerDozen}`
+            alertAdminDiv.insertAdjacentHTML('beforeend', result);
+        });
+        return false;
+    } else {
+        return true;
+    }
+  } 
 
 updatePriceButton.addEventListener('click', () => {
     for (let i=0; i<priceInputsAll.length; i++) {
         let inputValue = priceInputsAll[i].value;
-        cookiePackages[i].pricePerDozen = inputValue;
-        alertAdminDiv.textContent = `SUCCESS! Your prices have been updated! Here's what we got from you!`
-        cookiePackages.forEach( (package) => {
-            let result = `<br>${package.packageName} | $${package.pricePerDozen}`
-            alertAdminDiv.insertAdjacentHTML('beforeend', result);
-        })
-        priceInputsAll[i].value = ""
+        if (validatePrices(inputValue)) {
+            cookiePackages[i].pricePerDozen = inputValue;
+            alertAdminDiv.innerHTML = `<p>SUCCESS! Your prices have been updated! Here's what we got from you!</p>`
+            cookiePackages.forEach( (package) => {
+                let result = `<br>${package.packageName} | $${package.pricePerDozen}`
+                alertAdminDiv.insertAdjacentHTML('beforeend', result);
+                priceInputsAll[i].value = ""; 
+            })
+        } 
     }
 });
-
-
-
-const priceRegex = /^(?:\d+|\d{1,3}(?:,\d{3})+)?(?:\.\d{2})?$/;
-
-
-
-
-
-
-
-
-
-
-// const customerPackagePricing = document.getElementById('customer-package-options');
-
-// Build package details to print to customer
-// const packageInfo = cookiePackages.forEach( (package) => {
-    
-// });
-
-
-
-
-
-
-
-
 
 
 
