@@ -59,25 +59,6 @@ priceInputsAll.push(inputElaborate);
 
 const priceRegex = /^(\d+\.)(\d{2})$/
 
-// function validatePrices(priceInput) {
-//     let count = 0;
-//     if (priceRegex.test(priceInput)) {
-//         count = 0;
-//     } else {
-//         count += 1;
-//     }
-//     if (count > 0) {
-//         alertAdminDiv.innerHTML = `<p>We had a problem with your prices. Here's what we got from you. If you'd like to try again, resubmit your prices. If not, any package marked as $0 will prompt the customer to reach out to you!</p>`
-//         cookiePackages.forEach( (package) => {
-//             let result = `<br>${package.packageName} | $${package.pricePerDozen}`
-//             alertAdminDiv.insertAdjacentHTML('beforeend', result);
-//         });
-//         return false;
-//     } else {
-//         return true;
-//     }
-//   } 
-
 updatePriceButton.addEventListener('click', () => {
     let counter = 0;
     for (let i=0; i<priceInputsAll.length; i++) {
@@ -100,8 +81,10 @@ updatePriceButton.addEventListener('click', () => {
             let result = `<br>${package.packageName} | $${package.pricePerDozen}`
             alertAdminDiv.insertAdjacentHTML('beforeend', result);
         });
-        priceInputsAll.value = ""; 
-    } 
+    }
+    inputBasic.value= "";
+    inputDetailed.value= "";
+    inputElaborate.value= "";
 });
 
 // Place Updated Prices on CUSTOMER portal
