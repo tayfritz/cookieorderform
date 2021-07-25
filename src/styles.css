@@ -49,6 +49,23 @@ ul {
     list-style: none;
 }
 
+#customer-package-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.BASIC, .DETAILED, .ELABORATE {
+    max-width: 60%;
+    margin: 20px;
+    padding: 12px;
+    background: white;
+    box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all .2s linear;
+}
+
 #imagePreview {
     border: 1px dotted rgb(39, 63, 52);
     width: 50%;

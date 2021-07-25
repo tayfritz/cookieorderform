@@ -59,39 +59,85 @@ priceInputsAll.push(inputElaborate);
 
 const priceRegex = /^(\d+\.)(\d{2})$/
 
-function validatePrices(priceInput) {
-    let count = 0;
-    if (priceRegex.test(priceInput)) {
-        count = 0;
-    } else {
-        count += 1;
-    }
-    if (count > 0) {
+// function validatePrices(priceInput) {
+//     let count = 0;
+//     if (priceRegex.test(priceInput)) {
+//         count = 0;
+//     } else {
+//         count += 1;
+//     }
+//     if (count > 0) {
+//         alertAdminDiv.innerHTML = `<p>We had a problem with your prices. Here's what we got from you. If you'd like to try again, resubmit your prices. If not, any package marked as $0 will prompt the customer to reach out to you!</p>`
+//         cookiePackages.forEach( (package) => {
+//             let result = `<br>${package.packageName} | $${package.pricePerDozen}`
+//             alertAdminDiv.insertAdjacentHTML('beforeend', result);
+//         });
+//         return false;
+//     } else {
+//         return true;
+//     }
+//   } 
+
+updatePriceButton.addEventListener('click', () => {
+    let counter = 0;
+    for (let i=0; i<priceInputsAll.length; i++) {
+        let inputValue = priceInputsAll[i].value;
+        if  (priceRegex.test(inputValue))  {
+            cookiePackages[i].pricePerDozen = parseFloat(inputValue);
+        } else {
+            counter += 1;
+        }
+    }   
+    if (counter > 0) {
         alertAdminDiv.innerHTML = `<p>We had a problem with your prices. Here's what we got from you. If you'd like to try again, resubmit your prices. If not, any package marked as $0 will prompt the customer to reach out to you!</p>`
         cookiePackages.forEach( (package) => {
             let result = `<br>${package.packageName} | $${package.pricePerDozen}`
             alertAdminDiv.insertAdjacentHTML('beforeend', result);
-        });
-        return false;
+        });  
     } else {
-        return true;
-    }
-  } 
-
-updatePriceButton.addEventListener('click', () => {
-    for (let i=0; i<priceInputsAll.length; i++) {
-        let inputValue = priceInputsAll[i].value;
-        if (validatePrices(inputValue)) {
-            cookiePackages[i].pricePerDozen = parseFloat(inputValue);
-            alertAdminDiv.innerHTML = `<p>SUCCESS! Your prices have been updated! Here's what we got from you!</p>`
-            cookiePackages.forEach( (package) => {
-                let result = `<br>${package.packageName} | $${package.pricePerDozen}`
-                alertAdminDiv.insertAdjacentHTML('beforeend', result);
-                priceInputsAll[i].value = ""; 
-            })
-        } 
-    }
+        alertAdminDiv.innerHTML = `<p>SUCCESS! Your prices have been updated! Here's what we got from you!</p>`
+        cookiePackages.forEach( (package) => {
+            let result = `<br>${package.packageName} | $${package.pricePerDozen}`
+            alertAdminDiv.insertAdjacentHTML('beforeend', result);
+        });
+        priceInputsAll.value = ""; 
+    } 
 });
+
+// Place Updated Prices on CUSTOMER portal
+const customerPackageOptions = document.getElementById('customer-package-options');
+function summarizeColors(package) {
+    let totalColors;
+    if (package.whiteColor) {
+        totalColors = `white + ${package.additionalColors} additional colors of choice`;
+    } else {
+        totalColors = `${package.additionalColors} colors of choice`;
+    }
+    return totalColors;
+}
+
+function summarizeMetalics(package) {
+    let metalics;
+    if (package.metalic) {
+        metalics = `metalics`;
+    } else {
+        metalics = `metalics not included`;
+    }
+    return metalics;
+}
+
+cookiePackages.forEach((package) => {
+    const card = document.createElement('div');
+    card.className = package.packageName;
+    card.innerHTML = `<p>${package.packageName}<p>`
+    const p = document.createElement('p');
+    p.innerHTML = `<p>Included in package: ${summarizeColors(package)}, ${summarizeMetalics(package)}, ${package.maxDesigns} designs </p>`
+    customerPackageOptions.appendChild(card);
+    card.appendChild(p);
+});
+
+
+
 
 
 
