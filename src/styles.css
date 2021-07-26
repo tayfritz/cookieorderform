@@ -70,6 +70,17 @@ ul {
     transition: all .2s linear;
 }
 
+#cust-alert-div {
+    border: rgb(67, 67, 92) solid 5px;
+    border-radius: 5%;
+    max-width: 50%;
+    margin: auto;
+}
+
+#order-form {
+    margin: 30px;
+}
+
 #imagePreview {
     border: 1px dotted rgb(39, 63, 52);
     width: 50%;

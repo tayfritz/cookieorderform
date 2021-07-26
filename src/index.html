@@ -7,6 +7,8 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+        <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_orange.css">
     </head>
     <body>
         <header>
@@ -81,8 +83,9 @@
                     
                 </div>
 
+                    <p>Fill out your custom cookie order form below!</p>
+                    <div id='cust-alert-div'></div>
                     <div id="order-form">
-                        <p>Fill out your custom cookie order form below!</p>
                         <!-- Customer Information -->
                         <label for='name'>Name:</label>
                         <input type="text" id='cust-name' name='name' required> </br>
@@ -111,22 +114,21 @@
                         <input type="text" id='event-name' name='event-name'> </br>
 
                         <label for='event-date'>Event Date:</label>
-                        <input type="date" id='event-date' name='event-date'> </br>
+                        <input id="flatpickr" type="date" class="event-date"> </br>
 
                         <label for='dozens'>Dozens Needed:</label>
                         <input type="number" id='dozens' name='dozens'> </br>
                         
                         <div id='cookie-package'>
                             <p>Select your cookie package:</p>
-                            
                             <label for='basic'>Basic</label>
-                            <input type="radio" id='basic' name='basic'></br>
+                            <input type="radio" id='basic' name='radio'></br>
 
                             <label for='detailed'>Detailed</label>
-                            <input type="radio" id='detailed' name='detalied'></br>
+                            <input type="radio" id='detailed' name='radio'></br>
 
                             <label for='elaborate'>Elaborate</label>
-                            <input type="radio" id='elaborate' name='elaborate'></br>
+                            <input type="radio" id='elaborate' name='radio'></br>
                         </div>
 
                         <div id='inspiration'>
@@ -138,18 +140,18 @@
                             <!-- TODO: Add additional inputs for 2 more images -->
                             <!-- <div id="img-preview-2"></div>
                             <div id='img-preview-3'></div> -->
-                            <button id="select-img">Add Image</button>
+                            <!-- <button id="select-img">Add Image</button> -->
                         </div>
 
                         <button type='submit' id="place-order">Place Order!</button>
                     </div>
-                <!-- Order Confirmation -->  
-                <div id='order-confirmation'>
-                    <h3>Success! Here's what we got from you!</h3>
-                    <!-- TODO: Add elements dynamically in JS -->
-                </div>
+                        <!-- Order Confirmation -->  
+                    <div id='order-confirmation'>
+                    
+                    </div>
             </div>
         </main>
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
         <script src='pricing-refactor.js'></script>
         <script src='order-confirmation.js'></script>
         <script src='tabs.js'></script>
