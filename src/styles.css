@@ -55,8 +55,12 @@ ul {
     justify-content: center;
 }
 
+#prices-tbd{
+    font-style: italic;
+}
+
 .BASIC, .DETAILED, .ELABORATE {
-    max-width: 60%;
+    max-width: 550px;
     margin: 20px;
     padding: 12px;
     background: white;
