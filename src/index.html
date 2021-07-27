@@ -40,48 +40,22 @@
                         <button type='submit' id="update-prices">Update Prices</button>
 
                         <table id='pending-orders'>
-                            <tr>
-                                <th id='name'>Name</th>
-                                <th id='email'>Email</th>
-                                <th id='phone'>Phone</th>
-                                <th id='event-date'>Event Date</th>
-                                <th id='pickup-date'>Pickup Date</th>
-                                <th id='dozens'>Dozens Needed</th>
-                                <th id='package-selected'>Package</th>
-                            </tr>
-                           <!-- TODO: Create rows dynamically with JS -->
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
+                            <!-- TODO: Create headers dynamically -->
+                            <!-- TODO: Create rows dynamically with JS -->
                         </table>
                     </div>
             </div>
             
             <!-- Customer Portal -->
             <div id='customer-facing' class='tab-content'>
-                <div id='customer-pricing'>
-                    <h3>Cookie Packages Available</h3>
-                    <div id='customer-package-options'>
-                        <p id='prices-tbd'>We're sorry! Package options are not available at this time. Please contact the shop for more information.</p>
+                <div id='wrapper'>
+                    <div id='customer-pricing'>
+                        <h3>Cookie Packages Available</h3>
+                        <div id='customer-package-options'>
+                            <p id='prices-tbd'>We're sorry! Package options are not available at this time. Please contact the shop for more information.</p>
+                        </div>
+                        
                     </div>
-                    
-                </div>
 
                     <p>Fill out your custom cookie order form below!</p>
                     <div id='cust-alert-div'></div>
@@ -145,11 +119,10 @@
 
                         <button type='submit' id="place-order">Place Order!</button>
                     </div>
-                        <!-- Order Confirmation -->  
-                    <div id='order-confirmation'>
-                    
-                    </div>
+                </div>
             </div>
+            <!-- Order Confirmation -->  
+            <!-- <div id='order-confirmation'></div> -->
         </main>
         <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
         <script src='pricing-refactor.js'></script>

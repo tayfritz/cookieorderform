@@ -1,6 +1,8 @@
 // Order Information & Customer | CUSTOMER PAGE
-const placeOrder = document.getElementById('place-order');
+const customerPortalAll = document.getElementById('customer-facing');
+const customerWrapper = document.getElementById('wrapper');
 const custAlertDiv = document.getElementById('cust-alert-div');
+custAlertDiv.style.display = 'none';
 const custName = document.getElementById('cust-name');
 const custEmail = document.getElementById('cust-email');
 const custPhone = document.getElementById('cust-phone-number');
@@ -8,9 +10,11 @@ const custEventName = document.getElementById('event-name');
 const custEventDate = document.querySelector('#flatpickr');
 const custDozens = document.getElementById('dozens');
 const custPackageSelected = document.querySelectorAll("#cookie-package input");
-const confirmationDiv = document.getElementById('order-confirmation');
+const placeOrder = document.getElementById('place-order');
+const confirmationDiv = document.createElement('div');
+confirmationDiv.setAttribute('id', 'order-confirmation');
+customerPortalAll.appendChild(confirmationDiv);
 confirmationDiv.style.display = 'none';
-custAlertDiv.style.display = 'none';
 const orders = []
 
 // FUNCTIONS
@@ -34,10 +38,30 @@ function  validateOrderInfo() {
 
 // }
 
+function orderConfirmationDiv(message) {
+    confirmationDiv.style.display = 'block';
+    const status = document.createElement('h4');
+    status.textContent = message;
+    confirmationDiv.appendChild(status);
+    customerWrapper.style.display = 'none';
+}
+
+function pushToAdmin(arr) {
+    const table = document.getElementById('pending-orders');
+    arr.forEach( (order) => {
+        let row = document.createElement('tr'); 
+        for (let i=0; i<arr.length; i++) {
+            let cell = document.createElement('td');
+            let cellData = document.createTextNode(arr[0].values);
+            cell.appendChild(cellData);
+            row.appendChild(cell);
+        } 
+    });
+}
 
 // EVENT LISTENERS
 placeOrder.addEventListener('click', (e) => {
-    validateOrderInfo();
+    // validateOrderInfo();
     const newOrder = {
        name: `${custName.value}`,
        email: `${custEmail.value}`,
@@ -59,9 +83,9 @@ placeOrder.addEventListener('click', (e) => {
     }
    });
 
-   p.then((message) => {
-       console.log(message);
-   }).catch((message) => {
+   p.then((message) => orderConfirmationDiv(message))
+    .then( (message) => pushToAdmin(orders))
+    .catch((message) => {
         console.log('This is in the catch' + message);
    });
 });
