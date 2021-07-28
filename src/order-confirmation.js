@@ -7,11 +7,7 @@ const custName = document.getElementById('cust-name');
 const custEmail = document.getElementById('cust-email');
 const custPhone = document.getElementById('cust-phone-number');
 const custEventName = document.getElementById('event-name');
-const custEventDate = document.getElementById('event-date').addEventListener('change', () => {
-    let input = this.value;
-    let custInput = new Date(input);
-    return custInput;
-});
+const custEventDate = document.getElementById('event-date');
 const custDozens = document.getElementById('dozens');
 const custPackageSelected = document.querySelectorAll("#cookie-package input");
 const placeOrder = document.getElementById('place-order');
@@ -32,9 +28,15 @@ function  validateOrderInfo() {
 
 }
 
+function parseDate(customerEventDate) {
+    const date = new Date(customerEventDate);
+    console.log(date);
+    return date;
+}
 
 function determinePickupDate(customerEventDate) {
-    console.log(customerEventDate);
+    // return new Date(customerEventDate);
+    // console.log(customerEventDate);
 }
 
 
@@ -66,8 +68,8 @@ placeOrder.addEventListener('click', (e) => {
        "Email": `${custEmail.value}`,
        "Phone":`${custPhone.value}`,
        "Event Name": `${custEventName.value}`,
-       "Event Date": `${custEventDate}`,
-       "Pickup Date": determinePickupDate(custEventDate),
+       "Event Date": `${parseDate(custEventDate.value)}`,
+       "Pickup Date": determinePickupDate(custEventDate.value),
        "Dozens Needed": `${custDozens.value}`,
        "Package": `${custPackageSelected.checked}`,
        "Order Total": determineOrderTotal(custPackageSelected.checked, custDozens.value)
