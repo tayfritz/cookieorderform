@@ -116,6 +116,7 @@ placeOrder.addEventListener('click', (e) => {
    });
 });
 
+console.log('hello world');
 // NOTES:
 // Validate inputs
 // If all are 'true', make a new object
