@@ -29,15 +29,16 @@ function  validateOrderInfo() {
 }
 
 function parseDate(customerEventDate) {
-    let date = new Date(customerEventDate);
-    return date.toLocaleDateString();
+    let date = new Date(customerEventDate).toUTCString().slice(0, -13);;
+    console.log(date);
+    return date;
 }
 
 function determinePickupDate(customerEventDate) {
     let date = new Date(customerEventDate);
     let calculatePickup = date.setDate(date.getDate() - 2);
-    let pickup = new Date(calculatePickup);
-    return pickup.toLocaleDateString();
+    let pickup = new Date(calculatePickup).toUTCString().slice(0, -13);
+    return pickup;
 }
 
 
@@ -104,35 +105,3 @@ placeOrder.addEventListener('click', (e) => {
 // Push object to HTML table on ADMIN portal
 
 
-
-
-
-
-
-
-
-
-
-// const orderDescription = document.createElement('p');
-//     orderDescription.textContent = `
-//         Customer Info:
-//             Name: ${custName.value} 
-//             Email: ${custEmail.value}
-//             Phone: ${custPhone.value}
-        
-//         Order Information:
-//             Event Name: ${eventName.value} 
-//             Event Date: ${eventDate.value} 
-//             Pickup Date: tbd
-//             Dozens Needed: ${dozens.value} 
-//             Total Price: tbd
-//         `
-//     orderConfirmation.appendChild(orderDescription);
-
-// fs.writeFile('./orders.json', JSON.stringify(newOrderObj), err => {
-//     if (err) {
-//         console.log(err);
-//     } else {
-//         console.log('succes!');
-//     }
-// })
