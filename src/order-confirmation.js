@@ -7,7 +7,11 @@ const custName = document.getElementById('cust-name');
 const custEmail = document.getElementById('cust-email');
 const custPhone = document.getElementById('cust-phone-number');
 const custEventName = document.getElementById('event-name');
-const custEventDate = document.querySelector('#flatpickr');
+const custEventDate = document.getElementById('event-date').addEventListener('change', () => {
+    let input = this.value;
+    let custInput = new Date(input);
+    return custInput;
+});
 const custDozens = document.getElementById('dozens');
 const custPackageSelected = document.querySelectorAll("#cookie-package input");
 const placeOrder = document.getElementById('place-order');
@@ -29,50 +33,48 @@ function  validateOrderInfo() {
 }
 
 
-// function determinePickupDate(customerEventDate) {
-    
-// }
+function determinePickupDate(customerEventDate) {
+    console.log(customerEventDate);
+}
 
 
-// function determineOrderTotal(packageChosen, dozensOrdered) {
+function determineOrderTotal(packageChosen, dozensOrdered) {
 
-// }
+}
 
-function orderConfirmationDiv(message) {
+function orderConfirmationDiv(message, orderObj, keys, values) {
     confirmationDiv.style.display = 'block';
     const status = document.createElement('h4');
     status.textContent = message;
     confirmationDiv.appendChild(status);
     customerWrapper.style.display = 'none';
-}
 
-function pushToAdmin(arr) {
-    const table = document.getElementById('pending-orders');
-    arr.forEach( (order) => {
-        let row = document.createElement('tr'); 
-        for (let i=0; i<arr.length; i++) {
-            let cell = document.createElement('td');
-            let cellData = document.createTextNode(arr[0].values);
-            cell.appendChild(cellData);
-            row.appendChild(cell);
-        } 
+    keys.forEach((key, index) => {
+        let p = document.createElement('p');
+        p.setAttribute('class', 'order-data');
+        p.textContent = `${key}: ${orderObj[key]}`;
+        confirmationDiv.appendChild(p);
     });
 }
+
 
 // EVENT LISTENERS
 placeOrder.addEventListener('click', (e) => {
     // validateOrderInfo();
     const newOrder = {
-       name: `${custName.value}`,
-       email: `${custEmail.value}`,
-       phone: `${custPhone.value}`,
-       eventName: `${custEventName.value}`,
-       eventDate: `${custEventDate.value}`,
-    //    pickupDate: determinePickupDate(custEventDate.value),
-    //    dozensNeeded: `${custDozens.value}`,
-    //    packageSelected: `${custPackageSelected.checked}`,
-    //    orderTotal: determineOrderTotal(custPackageSelected.checked, custDozens.value)
+       "Name": `${custName.value}`,
+       "Email": `${custEmail.value}`,
+       "Phone":`${custPhone.value}`,
+       "Event Name": `${custEventName.value}`,
+       "Event Date": `${custEventDate}`,
+       "Pickup Date": determinePickupDate(custEventDate),
+       "Dozens Needed": `${custDozens.value}`,
+       "Package": `${custPackageSelected.checked}`,
+       "Order Total": determineOrderTotal(custPackageSelected.checked, custDozens.value)
    }
+
+   const orderKeys = Object.keys(newOrder);
+   const orderValues = Object.values(newOrder);
 
    let p = new Promise((resolve, reject) => {
     let pushNewOrder = orders.push(newOrder);
@@ -83,10 +85,10 @@ placeOrder.addEventListener('click', (e) => {
     }
    });
 
-   p.then((message) => orderConfirmationDiv(message))
-    .then( (message) => pushToAdmin(orders))
+   p.then((message) => orderConfirmationDiv(message, newOrder, orderKeys, orderValues))
+    // .then( (message) => sendOrder(newOrder.keys, newOrder.values))
     .catch((message) => {
-        console.log('This is in the catch' + message);
+        console.log('This is in the catch! ' + message);
    });
 });
 
