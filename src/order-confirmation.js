@@ -29,14 +29,15 @@ function  validateOrderInfo() {
 }
 
 function parseDate(customerEventDate) {
-    const date = new Date(customerEventDate);
-    console.log(date);
-    return date;
+    let date = new Date(customerEventDate);
+    return date.toLocaleDateString();
 }
 
 function determinePickupDate(customerEventDate) {
-    // return new Date(customerEventDate);
-    // console.log(customerEventDate);
+    let date = new Date(customerEventDate);
+    let calculatePickup = date.setDate(date.getDate() - 2);
+    let pickup = new Date(calculatePickup);
+    return pickup.toLocaleDateString();
 }
 
 
