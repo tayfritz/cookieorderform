@@ -9,7 +9,7 @@ const custPhone = document.getElementById('cust-phone-number');
 const custEventName = document.getElementById('event-name');
 const custEventDate = document.getElementById('event-date');
 const custDozens = document.getElementById('dozens');
-const custPackageSelected = document.querySelectorAll("#cookie-package input");
+const custPackageSelected = document.querySelectorAll("#cookie-packages input");
 const placeOrder = document.getElementById('place-order');
 const confirmationDiv = document.createElement('div');
 confirmationDiv.setAttribute('id', 'order-confirmation');
@@ -41,9 +41,30 @@ function determinePickupDate(customerEventDate) {
     return pickup;
 }
 
+function determineOrderTotal(packageSelectedByUser, packageArr, dozensOrdered) {
+    // let packageSelected = packageSelectedByUser;
+    let dozens = parseFloat(dozensOrdered);
+    console.log(dozens);
+    console.log(packageSelectedByUser);
+    console.log(packageArr);
+    let printToCust;
+    packageArr.find((item, index) => {
+        if (item.packageName === packageSelectedByUser) {
+            let packageCost = item.pricePerDozen;
+            let total = packageCost * dozens;
+            printToCust = `$${total} (including tax)`;
+        }
+    });
+    return printToCust;
+}
 
-function determineOrderTotal(packageChosen, dozensOrdered) {
-
+function determinePackageSelected(arr) {
+    for (let i=0; i<arr.length; i++) {
+        if (arr[i].checked === true) {
+            let identifier = arr[i]["id"];
+            return identifier.toUpperCase();
+        } 
+    }
 }
 
 function orderConfirmationDiv(message, orderObj, keys, values) {
@@ -71,23 +92,22 @@ placeOrder.addEventListener('click', (e) => {
        "Phone":`${custPhone.value}`,
        "Event Name": `${custEventName.value}`,
        "Event Date": `${parseDate(custEventDate.value)}`,
-       "Pickup Date": determinePickupDate(custEventDate.value),
+       "Pickup Date": `${determinePickupDate(custEventDate.value)}`,
        "Dozens Needed": `${custDozens.value}`,
-       "Package": `${custPackageSelected.checked}`,
-       "Order Total": determineOrderTotal(custPackageSelected.checked, custDozens.value)
+       "Package": `${determinePackageSelected(custPackageSelected)}`,
+       "Order Total": `${determineOrderTotal(determinePackageSelected(custPackageSelected), cookiePackages, custDozens.value)}`
    }
+    const orderKeys = Object.keys(newOrder);
+    const orderValues = Object.values(newOrder);
 
-   const orderKeys = Object.keys(newOrder);
-   const orderValues = Object.values(newOrder);
-
-   let p = new Promise((resolve, reject) => {
-    let pushNewOrder = orders.push(newOrder);
-    if (pushNewOrder) {
-        resolve('Success! We received your order!');
-    } else {
-        reject('Something went wrong with your order. Please try again later.');
-    }
-   });
+    let p = new Promise((resolve, reject) => {
+        let pushNewOrder = orders.push(newOrder);
+        if (pushNewOrder) {
+            resolve('Success! We received your order!');
+        } else {
+            reject('Something went wrong with your order. Please try again later.');
+        }
+    });
 
    p.then((message) => orderConfirmationDiv(message, newOrder, orderKeys, orderValues))
     // .then( (message) => sendOrder(newOrder.keys, newOrder.values))
@@ -99,9 +119,7 @@ placeOrder.addEventListener('click', (e) => {
 // NOTES:
 // Validate inputs
 // If all are 'true', make a new object
-// Calculate pick up time based on event date
 // Calculate order total based on package chosen and price set
-// Print confirmation to customer
 // Push object to HTML table on ADMIN portal
 
 
