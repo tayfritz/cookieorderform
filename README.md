@@ -46,20 +46,20 @@ REQUIREMENTS | FEATURES:
    - The file uploader will only accept .jpeg files. I've added 4 images in the /img folder for you to use for the sake of this project. Feel free to choose whichever one stands out to you most :wink:
    
    - The following can be tested against validation or conditional formatting:
-        - ADMIN | 
+        - ADMIN: 
             - `priceRegex` is validating input values to check for acceptable prices
             - `updatePriceButton.addEventListener` is listening for UPDATE PRICES click event and checking that all package prices have been set. If all packages have not been set, package details are not sent to CUSTOMER. 
 
-        - CUSTOMER | 
+        - CUSTOMER: 
             - All form fields include conditional formatting or regex tests to test input values received by the customer
             - Image file reader only accepts .jpeg files and is then read in the Image Preview
 
 
 ### Future Version Feature Possibilities: ###
-[ ] Package details of selected package remain on CUSTOMER page upon order confirmation
-[ ] `updatePriceButton.addEventListener` will be able to to update one package at a time and hide input of prices already set. 
-[ ] A 'New Order' button that will allow for multple order entries
-[ ] CUSTOMER form will include detailed information about valid inputs accepted in form.
+- [ ] Package details of selected package remain on CUSTOMER page upon order confirmation
+- [ ] `updatePriceButton.addEventListener` will be able to to update one package at a time and hide input of prices already set. 
+- [ ] A 'New Order' button that will allow for multple order entries
+- [ ] CUSTOMER form will include detailed information about valid inputs accepted in form.
 
 
 
