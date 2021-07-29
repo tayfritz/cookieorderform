@@ -98,6 +98,7 @@ function determinePackageSelected(arr) {
     for (let i=0; i<arr.length; i++) {
         if (arr[i].checked === true) {
             let identifier = arr[i]["id"];
+            let packageDetailsOfSelected = identifier;
             return identifier.toUpperCase();
         } 
     }
@@ -195,7 +196,5 @@ placeOrder.addEventListener('click', (e) => {
 
 
 
-// NOTES:
-// Push object to HTML table on ADMIN portal
 
 
