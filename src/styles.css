@@ -77,6 +77,13 @@ button {
     transition: all .2s linear;
 }
 
+.BASIC:hover, .DETAILED:hover, .ELABORATE:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    box-shadow: 4px 6px 50px rgb(0 0 0 / 20%);
+}
+
 #cust-alert-div {
     border: rgb(67, 67, 92) solid 5px;
     border-radius: 5%;

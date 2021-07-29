@@ -105,7 +105,7 @@ function displayToCustomer(package, tally) {
 }
 
 let tally = 0
-const priceRegex = /^(\d+\.)(\d{2})$/
+const priceRegex = /^(\d+\.)(\d{2})$/;
 updatePriceButton.addEventListener('click', () => {
     tally =+ 1;
     let counter = 0;
