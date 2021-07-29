@@ -15,6 +15,7 @@ const confirmationDiv = document.createElement('div');
 confirmationDiv.setAttribute('id', 'order-confirmation');
 customerPortalAll.appendChild(confirmationDiv);
 confirmationDiv.style.display = 'none';
+const pendingOrdersTable = document.getElementById('pending-orders');
 const orders = []
 
 // REGEX TEST STRINGS
@@ -80,11 +81,6 @@ function  validateOrderInfo() {
 
 }
 
-
-function reformatPhoneNumer(custerPhoneNumer) {
-
-}
-
 function parseDate(customerEventDate) {
     let date = new Date(customerEventDate).toUTCString().slice(0, -13);;
     console.log(date);
@@ -96,6 +92,15 @@ function determinePickupDate(customerEventDate) {
     let calculatePickup = date.setDate(date.getDate() - 2);
     let pickup = new Date(calculatePickup).toUTCString().slice(0, -13);
     return pickup;
+}
+
+function determinePackageSelected(arr) {
+    for (let i=0; i<arr.length; i++) {
+        if (arr[i].checked === true) {
+            let identifier = arr[i]["id"];
+            return identifier.toUpperCase();
+        } 
+    }
 }
 
 function determineOrderTotal(packageSelectedByUser, packageArr, dozensOrdered) {
@@ -115,15 +120,6 @@ function determineOrderTotal(packageSelectedByUser, packageArr, dozensOrdered) {
     return printToCust;
 }
 
-function determinePackageSelected(arr) {
-    for (let i=0; i<arr.length; i++) {
-        if (arr[i].checked === true) {
-            let identifier = arr[i]["id"];
-            return identifier.toUpperCase();
-        } 
-    }
-}
-
 function orderConfirmationDiv(message, orderObj, keys, values) {
     confirmationDiv.style.display = 'block';
     const status = document.createElement('h4');
@@ -139,6 +135,28 @@ function orderConfirmationDiv(message, orderObj, keys, values) {
     });
 }
 
+function sendOrderToAdmin(arr) {
+    let titles = Object.keys(arr[0]);
+    let headerRow = document.createElement('tr');
+    pendingOrdersTable.appendChild(headerRow);
+    titles.forEach( (header) => {
+        let headerTitle = document.createElement('th');
+        headerTitle.textContent = header;
+        headerRow.appendChild(headerTitle);
+    })
+
+    arr.forEach( (order) => {
+        let data = Object.values(order);
+        let dataRow = document.createElement('tr');
+        pendingOrdersTable.appendChild(dataRow);
+        console.log(data);
+        data.forEach( (item) => {
+            let cell = document.createElement('td');
+            cell.textContent = item;
+            return dataRow.appendChild(cell);
+        });
+    });
+}
 
 // EVENT LISTENERS
 placeOrder.addEventListener('click', (e) => {
@@ -166,9 +184,9 @@ placeOrder.addEventListener('click', (e) => {
             }
         });
         p.then((message) => orderConfirmationDiv(message, newOrder, orderKeys, orderValues))
-            // .then( (message) => sendOrder(newOrder.keys, newOrder.values))
+            .then( () => sendOrderToAdmin(orders))
             .catch((message) => {
-                console.log('This is in the catch! ' + message);
+                alert(`Something went wrong. Please contact administrator. ${message}`);
         });
     } else {
         return;

@@ -52,10 +52,6 @@ button {
     padding: 10px;
 }
 
-/* ul {
-    list-style: none;
-} */
-
 #customer-package-options {
     display: flex;
     flex-wrap: wrap;
@@ -118,23 +114,30 @@ button {
 }
 /* HTML TABLE STYLES */
 
-table {
+#pending-orders {
     border-collapse: collapse;
     margin: auto;
     width: 80%;
     padding: 10px 20px 10px 20px;
     border-radius: 5px;
+    border-top: 30px;
+    border-bottom: 30px;
 }
 
 td, th {
     text-align: center;
     padding: 8px;
-    color: floralwhite;
+    font-size: 1rem;
   }  
 
 tr:nth-child(odd) {
     background-color: rgb(39, 63, 52);
-    font: 20px;
+    color: floralwhite;
+}
+
+tr:nth-child(even) {
+    background-color: floralwhite;
+    color: rgb(39, 63, 52);
 }
 
 /* CONFIRMATION PAGE STYLES */
