@@ -7,10 +7,10 @@ Special shout out to the Javascript mentors during this cohort for volunteering 
 
 REQUIREMENTS | FEATURES:
 --
-[x] Responsive design
-[x] Uploaded to GitHub via Git
-[x] Includes a README 
-[x] Features included (7/3):
+- [x] Responsive design
+- [x] Uploaded to GitHub via Git
+- [x] Includes a README 
+- [x] Features included (7/3):
 
 - Read and parse an external file (such as JSON or CSV) into your application and display some data from that in your app
     
@@ -26,7 +26,7 @@ REQUIREMENTS | FEATURES:
 
 - Visualize data in a graph, chart, or other visual representation of data
 
-###How to run project:###
+### How to run project: ###
     (start) IN ADMIN >
         - Update cookie package prices for customers in the format X.XX (If they are not set, the customer is not given package details or prices).
         **NOTE:** All three package prices must be valid and entered in one instance in order to proceed successfully. 
@@ -42,7 +42,7 @@ REQUIREMENTS | FEATURES:
         - Upon confirmation of order, return to the ADMIN portal to see pending orders in the HTML table.
 
 
-###Additional Project Notes:###
+### Additional Project Notes: ###
    - The file uploader will only accept .jpeg files. I've added 4 images in the /img folder for you to use for the sake of this project. Feel free to choose whichever one stands out to you most :wink:
    
    - The following can be tested against validation or conditional formatting:
@@ -55,7 +55,7 @@ REQUIREMENTS | FEATURES:
             - Image file reader only accepts .jpeg files and is then read in the Image Preview
 
 
-###Future Version Feature Possibilities:###
+### Future Version Feature Possibilities: ###
 [ ] Package details of selected package remain on CUSTOMER page upon order confirmation
 [ ] `updatePriceButton.addEventListener` will be able to to update one package at a time and hide input of prices already set. 
 [ ] A 'New Order' button that will allow for multple order entries
