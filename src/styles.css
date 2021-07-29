@@ -5,12 +5,19 @@
     font-family: 'Comic Sans MS', 'Comic Sans', 'cursive', 'arial';
 }
 
+body {
+    margin: 0;
+    min-width: 400px;
+}
+
+
 header {
     background-color: rgb(90, 117, 88);
     color:peachpuff;
     margin-bottom: 15px;
     padding: 20px;
     width: 100%;
+    background-size: cover;
 }
 
 h1, h3 {
@@ -35,14 +42,14 @@ button {
 }
 
 #update-prices, #place-order {
-    margin-bottom: 10px;
+    margin: 20px;
+    min-width: 65%;
 }
 
 .admin-reminder {
     background-color: rgb(218, 131, 100);
     border-radius: 4px;
-    font-style: italic;
-    width: 60%;
+    min-width: 90%;
     margin: auto;
     padding: 20px;
 }
@@ -51,6 +58,15 @@ button {
     list-style: none;
     padding: 10px;
 }
+
+#admin-package-options input,
+#order-form input {
+    padding: 10px;
+    font-size: 1rem;
+    margin: auto;
+    text-align: center;
+}
+
 
 #customer-package-options {
     display: flex;
@@ -63,7 +79,7 @@ button {
 }
 
 .BASIC, .DETAILED, .ELABORATE {
-    max-width: 550px;
+    min-width: 90%;
     margin: 20px;
     padding: 12px;
     background: white;
@@ -83,17 +99,23 @@ button {
 #cust-alert-div {
     border: rgb(67, 67, 92) solid 5px;
     border-radius: 5%;
-    max-width: 50%;
+    min-width: 90%;
     margin: auto;
+    padding: 10px;
 }
 
 #order-form {
-    margin: 30px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-evenly;
 }
 
 #imagePreview {
     border: 1px dotted rgb(39, 63, 52);
-    width: 50%;
+    min-width: 90%;
     min-height: 100px;
     margin: auto;
 
@@ -153,4 +175,13 @@ tr:nth-child(even) {
 
 /*  ================  MEDIIA QUERIES  ================  */
 
+/* @media(min-width: 769px) {  
+
+}
+
+
+@media(min-width: 1056px) {
+
+
+} */
 
