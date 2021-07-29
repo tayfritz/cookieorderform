@@ -27,19 +27,19 @@ REQUIREMENTS | FEATURES:
 - Visualize data in a graph, chart, or other visual representation of data
 
 ### How to run project: ###
-    (start) IN ADMIN >
-        - Update cookie package prices for customers in the format X.XX (If they are not set, the customer is not given package details or prices).
-        **NOTE:** All three package prices must be valid and entered in one instance in order to proceed successfully. 
+(start) IN ADMIN >>>
+- Update cookie package prices for customers in the format X.XX (If they are not set, the customer is not given package details or prices).
+**NOTE:** All three package prices must be valid and entered in one instance in order to proceed successfully. 
 
-    (then) IN CUSTOMER >
-        - Browse the cookie package information & fill out the cookie order form accordingly
-        - Upload an image from the /img folder and view it in the Image Preview
-        - Upon a successful submission of order form, observe the confirmation information. The following data points are parsed using CUSTOMER input data: 
-            - Order pickup date = 2 days prior to eventDate
-            - Order Total = captures the package selected (radio) and uses value to search the package object for the correct package data. Then the `pricePerDozen` of the selected package is multiplied by the dozens requested.
+(then) IN CUSTOMER >>>
+- Browse the cookie package information & fill out the cookie order form accordingly
+- Upload an image from the /img folder and view it in the Image Preview
+- Upon a successful submission of order form, observe the confirmation information. The following data points are parsed using CUSTOMER input data: 
+    - Order pickup date = 2 days prior to eventDate
+    - Order Total = captures the package selected (radio) and uses value to search the package object for the correct package data. Then the `pricePerDozen` of the selected package is multiplied by the dozens requested.
 
-    (return) IN ADMIN >
-        - Upon confirmation of order, return to the ADMIN portal to see pending orders in the HTML table.
+(return) IN ADMIN >>>
+- Upon confirmation of order, return to the ADMIN portal to see pending orders in the HTML table.
 
 
 ### Additional Project Notes: ###
