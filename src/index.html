@@ -29,16 +29,17 @@
                         <div id='admin-alert-box'>
 
                         </div>
-                        <ul id='admin-package-options'>
-                            <li id="basic-cookies">BASIC:</li>
-                            <input type="text" class='price-input-basic'>
-                            <li id='detailed-cookies'>DETAILED:</li>
-                            <input type="text" class='price-input-detailed'>
-                            <li id='elaborate-cookies'>ELABORATE:</li>
-                            <input type="text" class='price-input-elaborate'>
-                        </ul>
-                        <button type='submit' id="update-prices">Update Prices</button>
-
+                        <div id='pricing-form'>
+                            <ul id='admin-package-options'>
+                                <li id="basic-cookies">BASIC:</li>
+                                <input type="text" class='price-input-basic'>
+                                <li id='detailed-cookies'>DETAILED:</li>
+                                <input type="text" class='price-input-detailed'>
+                                <li id='elaborate-cookies'>ELABORATE:</li>
+                                <input type="text" class='price-input-elaborate'>
+                            </ul>
+                            <button type='submit' id="update-prices">UPDATE PRICES</button>
+                        </div>
                         <table id='pending-orders'>
                             <!-- TODO: Create headers dynamically -->
                             <!-- TODO: Create rows dynamically with JS -->
@@ -70,7 +71,7 @@
                         <label for='phone-number'>Phone Number:</label>
                         <input type="number" id='cust-phone-number' name='phone-number' required></br>
 
-                        <div id='comm-pref'>
+                        <!-- <div id='comm-pref'>
                             <p>Communication Preference:</p>
                             
                             <label for='text-me'>Text me!</label>
@@ -81,7 +82,7 @@
                                 
                             <label for='no-comm-pref'>No preference!</label>
                             <input type="radio" id='no-comm-pref' name='no-comm-pref'></br>
-                        </div>
+                        </div> -->
                     
                         <!-- Order Information -->
                         <label for='event-name'>Event Name:</label>
@@ -117,7 +118,7 @@
                             <!-- <button id="select-img">Add Image</button> -->
                         </div>
 
-                        <button type='submit' id="place-order">Place Order!</button>
+                        <button type='submit' id="place-order">PLACE ORDER!</button>
                     </div>
                 </div>
             </div>

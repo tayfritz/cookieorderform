@@ -27,9 +27,11 @@ h1, h3 {
 }
 
 button {
-    font-size: 20px;
-    padding: 5px;
+    font-family: 'Comic Sans MS', 'Comic Sans', 'cursive', 'arial';
+    font-size: 1rem;
+    padding: 12px;
     border-radius: 3px;
+    box-shadow: 5px 2px 5px rgb(37, 49, 12);
 }
 
 #update-prices, #place-order {
@@ -45,9 +47,14 @@ button {
     padding: 20px;
 }
 
-ul {
+#admin-package-options {
     list-style: none;
+    padding: 10px;
 }
+
+/* ul {
+    list-style: none;
+} */
 
 #customer-package-options {
     display: flex;

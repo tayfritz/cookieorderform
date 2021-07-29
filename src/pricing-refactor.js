@@ -1,6 +1,7 @@
 // Cookie package options - ADMIN 
 const adminPackageOptions = document.getElementById("admin-package-options");
 const alertAdminDiv = document.getElementById('admin-alert-box');
+const setPricesForm = document.getElementById('pricing-form');
 const cookiePackages = [
     {
         packageName: 'BASIC',
@@ -128,6 +129,7 @@ updatePriceButton.addEventListener('click', () => {
             let result = `<br>${package.packageName} | $${package.pricePerDozen}`
             alertAdminDiv.insertAdjacentHTML('beforeend', result);
         });
+        setPricesForm.style.display = 'none';
         displayToCustomer(cookiePackages);
     }
     inputBasic.value= "";
