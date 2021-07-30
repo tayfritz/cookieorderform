@@ -57,7 +57,7 @@ button {
 
 #update-prices, #place-order {
     margin: 20px;
-    min-width: 65%;
+    width: fit-content;
 }
 
 .admin-reminder {
@@ -93,7 +93,7 @@ button {
 }
 
 .BASIC, .DETAILED, .ELABORATE {
-    min-width: 90%;
+    max-width: 85%;
     margin: 20px;
     padding: 12px;
     background: white;
@@ -128,9 +128,13 @@ button {
     justify-content: space-evenly;
 }
 
+#order-form #place-order {
+    align-self: center;
+}
+
 #imagePreview {
     border: 1px dotted rgb(39, 63, 52);
-    min-width: 90%;
+    min-width: 80%;
     min-height: 100px;
     margin: auto;
 
@@ -146,9 +150,6 @@ button {
     width: 100%;
 }
 
-#img-preview-2, #img-preview-3 {
-    display: block;
-}
 /* HTML TABLE STYLES */
 
 #pending-orders {
@@ -174,8 +175,60 @@ button {
         width: fit-content;
         padding: 10px;
     }
+
+    #update-prices, #place-order {
+        margin: 20px;
+        min-width: fit-content;
+    }
+
+    #customer-package-options {
+       justify-content: space-evenly;
+       flex-grow: 1;
+       flex-wrap: wrap;
+    }
+
+    .BASIC, .DETAILED, .ELABORATE {
+        max-width: 30%;
+        flex-shrink: 2;
+    }
+
+    #cust-alert-div {
+        border: rgb(67, 67, 92) solid 5px;
+        border-radius: 5%;
+        min-width: 10%;
+        max-width: 35%;
+        margin: auto auto 20px;
+        padding: 20px;
+    }
+
+    #imagePreview {
+        border: 1px dotted rgb(39, 63, 52);
+        max-width: 50%;
+        min-height: 100px;
+        margin: auto;
     
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: rgb(33, 18, 56);
+    }
     
+    #image-preview__image {
+        display: none;
+        width: 50%;
+    }
+
+    #order-confirmation {
+        margin: auto auto 20px;
+        background-color: rgb(39, 63, 52);
+        color: floralwhite;
+        padding: 10px;
+        min-width: 25%;
+        max-width: 60%;
+        text-align: center;
+     }
+
     #pending-orders {
         display: block;
         border-collapse: collapse;
