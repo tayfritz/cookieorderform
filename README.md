@@ -39,9 +39,9 @@ REQUIREMENTS | FEATURES:
 2. On load, you will be in the `ADMIN` portal 
     - The cookie packages available will be - `BASIC`, `DETAILED`, & `ELABORATE`. The package prices must be be set in order for the CUSTOMER to view the package details (on load, the packages are not visible in the CUSTOMER portal). 
     - Using the format of X.XX, enter your cookie package prices per dozen `Ex: BASIC: 3.99 | DETAILED: 4.99 | ELABORATE: 5.99`. You may use whatever you'd like for the prices.
-    - The regEx testing these input fields, `priceRegex` will test that you've entered a correct price in the above format. Otherwise, it will prompt you to try again. Once you set the package prices correctly (Note: you must set them correctly in each instance. They do not save unless all prices are OK), you will recive a confirmation message that your prices have been updated. 
+    - The regex testing these input fields, `priceRegex` will test that you've entered a correct price in the above format. Otherwise, it will prompt you to try again. Once you set the package prices correctly (Note: you must set them correctly in a single instance. They do not save unless all prices are OK), you will recive a confirmation message that your prices have been updated. 
     - You may view your new package prices in the `adminAlertDiv`.
-3. Upon confirmation that your prices have been updated, switch to the `CUSTOMER` portal, by using the tabLink at the top, entitled `CUSTOMER`. 
+3. Upon confirmation that your prices have been updated, switch to the `CUSTOMER` portal, by using the `tabLink` at the top, entitled `CUSTOMER`. 
     - You may view the package options, what is included in each package, and the package `pricePerDozen` in the card divs at the top of the page.
     - Use the order form, below the card divs, to place a cookie order. 
     - Fill out each field with typical characters. All fields are checked through regex and other validation requirements to ensure the proper data is being received. If you do not enter expected data, you will be alerted in the `cust-alert-div` that there was a problem and will list the specific input(s) where the problem occured. To avoid an error, use the following guide: 
