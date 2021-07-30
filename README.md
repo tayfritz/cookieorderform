@@ -8,25 +8,31 @@ Special shout out to the Javascript mentors during this cohort for volunteering 
 REQUIREMENTS | FEATURES:
 --
 - [x] Responsive design
-    - Multiple elements are responsive to a change in viewport size `@media(min-width: 825px)`, including the `#pending-orders` that will `display: none` on a smaller screen.
+    - Multiple elements are responsive to a change in viewport size `@media(min-width: 825px)`, including the `#pending-orders` HTML table that will `display: none` on a smaller screen.
 - [x] Uploaded to GitHub via Git
 - [x] Includes a README 
 - [x] Features included (7/3):
 
 - Read and parse an external file (such as JSON or CSV) into your application and display some data from that in your app
-    - `#imagePreview`& `#image-preview__image` receive and read .jpeg files (included in project files)
+    - `#imagePreview` & `#image-preview__image` receive and read .jpeg files (which are provided for in the project files).
     
 - Create an array, dictionary or list, populate it with multiple values, retrieve at least one value, and use or display it in your application
+    - The `orders` array contains order objects and is itterated over in multiple functions, like in the case of `determinePackageSelected()`.
 
 - Create and use a function that accepts two or more values (parameters), calculates or determines a new value based on those inputs, and returns a new value
+    - Multiple functions accept two or more values, including: `determineOrderTotal()` & `orderConfirmationDiv()`.
 
 - Implement a regular expression (regex) to ensure a field either a phone number or an email address is always stored and displayed in the same format
+    - There are four total regex validators within the project, including `emailRegex` & `priceRegex`.
 
 - Build a conversion tool that converts user input to another type and displays it (ex: converts cups to grams)
+    - There are a couple of functions that use user input to convert that data into another type of data, which is then displayed in multiple ways. Two of these functions are `parseDate()` & `determinePickupDate()`.
 
 - Calculate and display data based on an external factor (ex: get the current date, and display how many days remaining until some event)
+    - The following functions use user input from the order form to determine the `pickupDate` (2 days prior to event date) and the `orderTotal`: `determinePickupDate()` & `determineOrderTotal()`.
 
 - Visualize data in a graph, chart, or other visual representation of data
+    - User input from the customer portal to make a cookie order is used to create an order object, which is sent back to the admin in the form of an HTML table, `sendOrderToAdmin()`
 
 ### How to run project: ###
 (start) IN ADMIN >>>
