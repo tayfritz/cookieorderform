@@ -17,7 +17,7 @@ REQUIREMENTS | FEATURES:
     - `#imagePreview` & `#image-preview__image` receive and read .jpeg files (which are provided for in the project files).
     
 - Create an array, dictionary or list, populate it with multiple values, retrieve at least one value, and use or display it in your application
-    - The `orders` array contains order objects and is itterated over in multiple functions, like in the case of `determinePackageSelected()`.
+    - The `orders` array contains order objects and is itterated over in multiple functions, such as in the case of `determinePackageSelected()`.
 
 - Create and use a function that accepts two or more values (parameters), calculates or determines a new value based on those inputs, and returns a new value
     - Multiple functions accept two or more values, including: `determineOrderTotal()` & `orderConfirmationDiv()`.
@@ -32,36 +32,30 @@ REQUIREMENTS | FEATURES:
     - The following functions use user input from the order form to determine the `pickupDate` (2 days prior to event date) and the `orderTotal`: `determinePickupDate()` & `determineOrderTotal()`.
 
 - Visualize data in a graph, chart, or other visual representation of data
-    - User input from the customer portal to make a cookie order is used to create an order object, which is sent back to the admin in the form of an HTML table, `sendOrderToAdmin()`
+    - User input from the customer portal to make a cookie order is used to create an order object, which is sent back to the admin in the form of an HTML table, `sendOrderToAdmin()`.
 
 ### How to run project: ###
-(start) IN ADMIN >>>
-- Update cookie package prices for customers in the format X.XX (If they are not set, the customer is not given package details or prices).
-**NOTE:** All three package prices must be valid and entered in one instance in order to proceed successfully. 
-
-(then) IN CUSTOMER >>>
-- Browse the cookie package information & fill out the cookie order form accordingly
-- Upload an image from the /img folder and view it in the Image Preview
-- Upon a successful submission of order form, observe the confirmation information. The following data points are parsed using CUSTOMER input data: 
-    - Order pickup date = 2 days prior to eventDate
-    - Order Total = captures the package selected (radio) and uses value to search the package object for the correct package data. Then the `pricePerDozen` of the selected package is multiplied by the dozens requested.
-
-(return) IN ADMIN >>>
-- Upon confirmation of order, return to the ADMIN portal to see pending orders in the HTML table.
-
-
-### Additional Project Notes: ###
-   - The file uploader will only accept .jpeg files. I've added 4 images in the /img folder for you to use for the sake of this project. Feel free to choose whichever one stands out to you most :wink:
-   
-   - The following can be tested against validation or conditional formatting:
-        - ADMIN: 
-            - `priceRegex` is validating input values to check for acceptable prices
-            - `updatePriceButton.addEventListener` is listening for UPDATE PRICES click event and checking that all package prices have been set. If all packages have not been set, package details are not sent to CUSTOMER. 
-
-        - CUSTOMER: 
-            - All form fields include conditional formatting or regex tests to test input values received by the customer
-            - Image file reader only accepts .jpeg files and is then read in the Image Preview
-
+1. Open index.html
+2. On load, you will be in the `ADMIN` portal 
+    - The cookie packages available will be - `BASIC`, `DETAILED`, & `ELABORATE`. The package prices must be be set in order for the CUSTOMER to view the package details (on load, the packages are not visible in the CUSTOMER portal). 
+    - Using the format of X.XX, enter your cookie package prices per dozen `Ex: BASIC: 3.99 | DETAILED: 4.99 | ELABORATE: 5.99`. You may use whatever you'd like for the prices.
+    - The regEx testing these input fields, `priceRegex` will test that you've entered a correct price in the above format. Otherwise, it will prompt you to try again. Once you set the package prices correctly (Note: you must set them correctly in each instance. They do not save unless all prices are OK), you will recive a confirmation message that your prices have been updated. 
+    - You may view your new package prices in the `adminAlertDiv`.
+3. Upon confirmation that your prices have been updated, switch to the `CUSTOMER` portal, by using the tabLink at the top, entitled `CUSTOMER`. 
+    - You may view the package options, what is included in each package, and the package `pricePerDozen` in the card divs at the top of the page.
+    - Use the order form, below the card divs, to place a cookie order. 
+    - Fill out each field with typical characters. All fields are checked through regex and other validation requirements to ensure the proper data is being received. If you do not enter expected data, you will be alerted in the `cust-alert-div` that there was a problem and will list the specific input(s) where the problem occured. To avoid an error, use the following guide: 
+        - Name: must not be an empty string
+        - Email: must be a valid, typical, email string (abc@trythis.com)
+        - Phone: must me a valid, typical, phone number consisting of 10 numbers. () and - are also allowed.
+        - Event Name: must not be an empty string
+        - Event Date: must not be an empty string
+        - Dozens Needed: must include an integer
+        - Package: One package must be selected to continue
+    - Upload an inspo picture for your cookie order using the file uploader. Pictures must be .jpeg, so I have included some pictures in the project files that you may pic from and use. Your file will be read and displayed using `#imagePreview` & `#image-preview__image`. (Note, this is not included in the order object. But still fun :wink:!)
+    - If the order passes validation, you will be alerted that your order was succesful by seeing the `#order-confirmation`. 
+    - Successful orders create an order object, `newOrder` and are passed into the `orders` array. Then the array is iterated over to create the `pendingOrdersTable` on the ADMIN portal.
+4. Upon completion of a successful order, return to the `ADMIN` portal. On a viewport over 825px, you will see your `#pending-orders` in a table that contains information on each of your orders (in this case, there will be only one).
 
 ### Future Version Feature Possibilities: ###
 - [ ] Package details of selected package remain on CUSTOMER page upon order confirmation
