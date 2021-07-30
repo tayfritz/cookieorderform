@@ -8,11 +8,13 @@ Special shout out to the Javascript mentors during this cohort for volunteering 
 REQUIREMENTS | FEATURES:
 --
 - [x] Responsive design
+    - Multiple elements are responsive to a change in viewport size `@media(min-width: 825px)`, including the `#pending-orders` that will `display: none` on a smaller screen.
 - [x] Uploaded to GitHub via Git
 - [x] Includes a README 
 - [x] Features included (7/3):
 
 - Read and parse an external file (such as JSON or CSV) into your application and display some data from that in your app
+    - `#imagePreview`& `#image-preview__image` receive and read .jpeg files (included in project files)
     
 - Create an array, dictionary or list, populate it with multiple values, retrieve at least one value, and use or display it in your application
 
