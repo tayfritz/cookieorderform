@@ -42,26 +42,27 @@ REQUIREMENTS | FEATURES:
     - The regex testing these input fields, `priceRegex` will test that you've entered a correct price in the above format. Otherwise, it will prompt you to try again. Once you set the package prices correctly (Note: you must set them correctly in a single instance. They do not save unless all prices are OK), you will recive a confirmation message that your prices have been updated. 
     - You may view your new package prices in the `adminAlertDiv`.
 3. Upon confirmation that your prices have been updated, switch to the `CUSTOMER` portal, by using the `tabLink` at the top, entitled `CUSTOMER`. 
-    - You may view the package options, what is included in each package, and the package `pricePerDozen` in the card divs at the top of the page.
+    - You may view the package options, what is included in each package, and the package `pricePerDozen` that you just set, in the card divs at the top of the page.
     - Use the order form, below the card divs, to place a cookie order. 
     - Fill out each field with typical characters. All fields are checked through regex and other validation requirements to ensure the proper data is being received. If you do not enter expected data, you will be alerted in the `cust-alert-div` that there was a problem and will list the specific input(s) where the problem occured. To avoid an error, use the following guide: 
         - Name: must not be an empty string
-        - Email: must be a valid, typical, email string (abc@trythis.com)
+        - Email: must be a valid, typical, email string `(abc@trythis.com)`
         - Phone: must me a valid, typical, phone number consisting of 10 numbers. () and - are also allowed.
         - Event Name: must not be an empty string
         - Event Date: must not be an empty string
         - Dozens Needed: must include an integer
         - Package: One package must be selected to continue
-    - Upload an inspo picture for your cookie order using the file uploader. Pictures must be .jpeg, so I have included some pictures in the project files that you may pic from and use. Your file will be read and displayed using `#imagePreview` & `#image-preview__image`. (Note, this is not included in the order object. But still fun :wink:!)
-    - If the order passes validation, you will be alerted that your order was succesful by seeing the `#order-confirmation`. 
+    - Upload an inspo picture for your cookie order using the file uploader. Pictures must be .jpeg, so I have included some pictures in the project files that you may pick from and use. (Note: these are my actual cookie pictures so I hope you like them :wink:) Your file will be read and displayed using `#imagePreview` & `#image-preview__image`. (Note, this is not included in the order object. But still fun :wink:!)
+    - If the order passes validation, you will be alerted that your order was succesful by the `#order-confirmation`, which will now include your `pickupDate` and `orderTotal` which are converted using the input from Event Date and Package Selected + Dozens Needed. 
     - Successful orders create an order object, `newOrder` and are passed into the `orders` array. Then the array is iterated over to create the `pendingOrdersTable` on the ADMIN portal.
-4. Upon completion of a successful order, return to the `ADMIN` portal. On a viewport over 825px, you will see your `#pending-orders` in a table that contains information on each of your orders (in this case, there will be only one).
+4. Upon completion of a successful order, return to the `ADMIN` portal using the `tablink` titled `ADMIN`. On a viewport over 825px, you will see your `#pending-orders` in a table that contains information on each of your orders (in this case, there will be only one). Viewports under 825px wil hide the table for the sake of user experience.
 
 ### Future Version Feature Possibilities: ###
 - [ ] Package details of selected package remain on CUSTOMER page upon order confirmation
 - [ ] `updatePriceButton.addEventListener` will be able to to update one package at a time and hide input of prices already set. 
 - [ ] A 'New Order' button that will allow for multple order entries
 - [ ] CUSTOMER form will include detailed information about valid inputs accepted in form.
+- [ ] On smaller viewports, a div will prompt ADMIN to view their pending orders on a desktop
 
 
 
