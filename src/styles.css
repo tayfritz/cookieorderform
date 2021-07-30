@@ -1,15 +1,20 @@
 /*  ================  BASIC STYLES  ================  */
-:root {
-    background-color: rgb(208, 231, 207);
-    text-align: center;
+* {
+    box-sizing: border-box;
     font-family: 'Comic Sans MS', 'Comic Sans', 'cursive', 'arial';
 }
 
-body {
-    margin: 0;
-    min-width: 400px;
+:root {
+    background-color: rgb(208, 231, 207);
+    text-align: center;
+    overflow: auto;
 }
 
+html, body {
+    width:100%;
+    height:100%;
+    margin: auto; 
+}
 
 header {
     background-color: rgb(90, 117, 88);
@@ -25,6 +30,15 @@ h1, h3 {
     padding: 20px;
 }
 
+#tab-btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    width: fit-content;
+    padding: 10px;
+}
+
 .tab-content {
     display: none;
 }
@@ -35,9 +49,9 @@ h1, h3 {
 
 button {
     font-family: 'Comic Sans MS', 'Comic Sans', 'cursive', 'arial';
-    font-size: 1rem;
+    font-size: 1.2rem;
     padding: 12px;
-    border-radius: 3px;
+    border-radius: 5px;
     box-shadow: 5px 2px 5px rgb(37, 49, 12);
 }
 
@@ -49,8 +63,8 @@ button {
 .admin-reminder {
     background-color: rgb(218, 131, 100);
     border-radius: 4px;
-    min-width: 90%;
-    margin: auto;
+    max-width: 85%;
+    margin: auto auto 20px;
     padding: 20px;
 }
 
@@ -100,8 +114,9 @@ button {
     border: rgb(67, 67, 92) solid 5px;
     border-radius: 5%;
     min-width: 90%;
-    margin: auto;
-    padding: 10px;
+    max-width: 85%;
+    margin: auto auto 20px;
+    padding: 20px;
 }
 
 #order-form {
@@ -137,51 +152,58 @@ button {
 /* HTML TABLE STYLES */
 
 #pending-orders {
-    border-collapse: collapse;
-    margin: auto;
-    width: 80%;
-    padding: 10px 20px 10px 20px;
-    border-radius: 5px;
-    border-top: 30px;
-    border-bottom: 30px;
-}
-
-td, th {
-    text-align: center;
-    padding: 8px;
-    font-size: 1rem;
-  }  
-
-tr:nth-child(odd) {
-    background-color: rgb(39, 63, 52);
-    color: floralwhite;
-}
-
-tr:nth-child(even) {
-    background-color: floralwhite;
-    color: rgb(39, 63, 52);
+    display: none;
 }
 
 /* CONFIRMATION PAGE STYLES */
 #order-confirmation {
-    position: relative;
-    margin: auto;
+    margin: auto auto 20px;
     background-color: rgb(39, 63, 52);
     color: floralwhite;
-    padding: 8px;
-    width: 80%;
+    padding: 10px;
+    width: 85%;
     text-align: center;
  }
 
 /*  ================  MEDIIA QUERIES  ================  */
 
-/* @media(min-width: 769px) {  
+@media(min-width: 825px) {  
+    #tab-btns {
+        display: block;
+        margin: auto;
+        width: fit-content;
+        padding: 10px;
+    }
+    
+    
+    #pending-orders {
+        display: block;
+        border-collapse: collapse;
+        max-width: 85%;
+        margin: auto;
+        border-radius: 5px;
+        border-top: 30px;
+        border-bottom: 30px;
+        overflow: auto;
+    }
+
+    td, th {
+        text-align: center;
+        padding: 8px;
+        font-size: 1rem;
+    }  
+
+    tr:nth-child(odd) {
+        background-color: rgb(39, 63, 52);
+        color: floralwhite;
+    }
+
+    tr:nth-child(even) {
+        background-color: floralwhite;
+        color: rgb(39, 63, 52);
+    }
+
 
 }
 
-
-@media(min-width: 1056px) {
-
-
-} */
 
